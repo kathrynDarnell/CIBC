@@ -6,7 +6,6 @@
 Welcome 
 
 <?php
-echo "get" $_GET;
  $a = $_GET["firstName"]; echo $a; ?><br>
 Your email address is: <? $b = echo $_GET["lastName"]; echo $b; ?>
 
