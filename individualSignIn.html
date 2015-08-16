@@ -1,6 +1,15 @@
+<h1>
+<?php 
+    session_start();
+    $_SESSION["firstName"] = "ghjk";
+    echo $_SESSION["firstName"];
+    echo "awsedrtfyguij";
+?>
+</h1>
+<html>
 <h1> Please enter your first and last name </h1>
 
-<form  action="searchResults.html" method="get">
+<form  onsubmit="return validateForm()" name="myForm" action="searchResults.html" method="get">
 	First name:<br>
 	<input type="text" name="firstName">
 	<br>
@@ -12,3 +21,23 @@
 	<input type="submit" value="Submit" name="Submit">
 </form>
 
+
+
+
+
+<script>
+function validateForm() {
+   	var x = document.forms["myForm"]["firstName"].value;
+    if (x == null || x == "" ) {
+        alert("Name must be filled out");
+        return false;
+    }
+    	'@Session["SomeSessionVariable"]'
+    }	
+</script>
+
+
+
+
+
+</html>

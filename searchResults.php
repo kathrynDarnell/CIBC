@@ -1,13 +1,19 @@
+ 
+
 <html>
-<h1> Search results for: </h1>
-
-<body>
-
-Welcome 
+<h1> Search results for: 
 
 <?php
- $a = $_GET["firstName"]; echo $a; ?><br>
-Your email address is: <? $b = echo $_GET["lastName"]; echo $b; ?>
+ $a = $_GET["firstName"];
 
-</body>
+
+?>
+ftyf $a
+</h1>
+
+
 </html>
+
+
+
+
