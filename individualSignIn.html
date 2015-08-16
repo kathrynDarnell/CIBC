@@ -83,7 +83,7 @@ function validateForm() {
     	document.getElementById('name').innerHTML= firstName + ", " + lastName;
 
     	for (i = 0; i < participants.length; i++){
-    		if ((participants[i][0].toLowerCase().indexOf(firstName.toLowerCase()) > -1) && (participants[i][0].toLowerCase().indexOf(lastName.toLowerCase()) > -1)){
+    		if ((participants[i][0].toLowerCase().indexOf(firstName.toLowerCase()) > -1) && (participants[i][1].toLowerCase().indexOf(lastName.toLowerCase()) > -1)){
     			
     			var ul = document.getElementById("matches");
 				var li = document.createElement("li");

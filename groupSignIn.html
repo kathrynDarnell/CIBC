@@ -6,8 +6,8 @@
 	<h1> Please enter your team name </h1>
 	<form id="myForm">
 		Team name:<br>
-		<input type="text" name="teamName">
-		</form>
+		<input type="text" name="teamName"></input>
+	</form>
 	<button  name="submit" value="submit" onClick="validateForm()"> submit </button>
 </div>
 
@@ -19,14 +19,12 @@
 
 
 	
-<div id="display" style="display:none">
+<div id="display2" style="display:none">
 	<h3> Search results for:<div id="name"></div> </h3>
 	<h3> Please check the box beside all the participants you with to check in </h3>
 	<ol id="matches"> </ol>
 	<button onClick="confirmation()"> Submit </button>
-
- 	
-
+</div>
 
 
 
@@ -73,34 +71,33 @@ function validateForm() {
         alert("Team name must be filled out");
         return false;
 
-    }else{
-    	document.getElementById('groupSignIn').style.display="none";
-    	document.getElementById('display').style.display="";
-    	document.getElementById('name').innerHTML= teamName;
-
-    	for (i = 0; i < participants.length; i++){
-    		if (participants[i][2].toLowerCase().indexOf(teamName.toLowerCase()) > -1){
-    		
-    			var ul = document.getElementById("matches");
-				var li = document.createElement("li");
-				li.appendChild(document.createTextNode(participants[i]));
-				ul.appendChild(li);
-				li.innerHTML =  "<input id=cb" +i + " type=checkbox> </input>		" + li.innerHTML;
-    		
-    		}
-    	}
-    
     }
-    	
+    document.getElementById('groupSignIn').style.display="none";
+    document.getElementById('display2').style.display="";
+    document.getElementById('name').innerHTML= teamName;
+
+    for (i = 0; i < participants.length; i++){
+    	if (participants[i][2].toLowerCase().indexOf(teamName.toLowerCase()) > -1){
+    		
+    		var ul = document.getElementById("matches");
+			var li = document.createElement("li");
+			li.appendChild(document.createTextNode(participants[i]));
+			ul.appendChild(li);
+			li.innerHTML =  "<input id=cb" +i + " type=checkbox> </input>		" + li.innerHTML;
+    		
+    	}
+    }    	
 }
 
 
 
 
 function confirmation(){
-	document.getElementById('confirm').style.display="";
-    document.getElementById('display').style.display="hidden";
- 
+	
+	
+    document.getElementById('display2').style.display="none";
+ 	document.getElementById('confirm').style.display="";
+
     for (i = 0; i < participants.length; i++){
     	if (document.getElementById("cb"+i) != null && document.getElementById("cb"+i).checked){
 				
