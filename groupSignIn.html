@@ -1,7 +1,121 @@
-<h1> Please enter your team name </h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-<form>
-Team name:<br>
-<input type="text" name="temName">
-</form>
-<button onClick="location.href='searchResults.html'">Submit</button>	
+
+
+<div id="groupSignIn" /> 
+	<h1> Please enter your team name </h1>
+	<form id="myForm">
+		Team name:<br>
+		<input type="text" name="teamName">
+		</form>
+	<button  name="submit" value="submit" onClick="validateForm()"> submit </button>
+</div>
+
+
+
+
+
+
+
+
+	
+<div id="display" style="display:none">
+	<h3> Search results for:<div id="name"></div> </h3>
+	<h3> Please check the box beside all the participants you with to check in </h3>
+	<ol id="matches"> </ol>
+	<button onClick="confirmation()"> Submit </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="confirm" style="display:none"> 
+	<h1>Confirmation Page </h1>
+	<h3> Would you like to check in these paricipants? <ol id="check"> </ol> </h3>
+	<button> Yes </button>
+	<button> No </Button>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+participants = [["Kate", "Darnell", "Pink" ],
+["Angel", "Wu", "Blue"],
+["Kathy", "Zheng", "Blue"],
+["Christina", "Isaicu", "Pink"],
+["Jose", "Herrera", "Blue"],
+["Whinnie", "The Pooh", "Pink"],
+["Spongebob", "Squarepants", ""],
+["Mickey", "Mouse", ""],
+["Cookie", "Monster", "Pink"],
+["Hello", "Kitty", "Blue"]];
+
+
+
+
+function validateForm() {
+   	var teamName = document.forms["myForm"]["teamName"].value;
+    if (teamName == null || teamName == "" ) {
+        alert("Team name must be filled out");
+        return false;
+
+    }else{
+    	document.getElementById('groupSignIn').style.display="none";
+    	document.getElementById('display').style.display="";
+    	document.getElementById('name').innerHTML= teamName;
+
+    	for (i = 0; i < participants.length; i++){
+    		if (participants[i][2].toLowerCase().indexOf(teamName.toLowerCase()) > -1){
+    		
+    			var ul = document.getElementById("matches");
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(participants[i]));
+				ul.appendChild(li);
+				li.innerHTML =  "<input id=cb" +i + " type=checkbox> </input>		" + li.innerHTML;
+    		
+    		}
+    	}
+    
+    }
+    	
+}
+
+
+
+
+function confirmation(){
+	document.getElementById('confirm').style.display="";
+    document.getElementById('display').style.display="hidden";
+ 
+    for (i = 0; i < participants.length; i++){
+    	if (document.getElementById("cb"+i) != null && document.getElementById("cb"+i).checked){
+				
+				var ul = document.getElementById("check");
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(participants[i]));
+				ul.appendChild(li);
+    	}
+
+    }
+
+
+}	
+</script>
+
+
+
+
