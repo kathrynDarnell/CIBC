@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+<ul class="nav nav-tabs">
+  <li role="presentation" ><a href="index.html">Home</a></li>
+  <li role="presentation"><a href="individualSignIn.html">Individual Sign In</a></li>
+  <li role="presentation"><a href="groupSignIn.html">Group Sign In </a></li>
+</ul>
 
 
 <div id="groupSignIn" > 
@@ -20,9 +24,9 @@
 
 	
 <div id="display2" style="display:none">
-	<h3> Search results for:<div id="name"></div> </h3>
+	<h3> Search results for:<span id="name"></span> </h3>
 	<h3> Please check the box beside all the participants you with to check in </h3>
-	<ol id="matches"> </ol>
+	<ol class="list-group" id="matches"> </ol>
 	<button onClick="confirmation()"> Submit </button>
 </div>
 
@@ -36,11 +40,11 @@
 
 <div id="confirm" style="display:none"> 
 	<h1>Confirmation Page </h1>
-	<h3> Would you like to check in these paricipants? <ol id="check"> </ol> </h3>
-	<button> Yes </button>
-	<button> No </Button>
-</div>
+	<h3> Would you like to check in these paricipants? <ol class="list-group" id="check"> </ol> </h3>
+	<button onClick="location.href='thankYou.html'"> Yes </button>
+	<button onclick="location.href='groupSignIn.html'"> Correction </Button>
 
+</div>
 
 
 
@@ -83,6 +87,7 @@ function validateForm() {
 			var li = document.createElement("li");
 			li.appendChild(document.createTextNode(participants[i]));
 			ul.appendChild(li);
+			li.class="list-group-item";
 			li.innerHTML =  "<input id=cb" +i + " type=checkbox> </input>		" + li.innerHTML;
     		
     	}
@@ -103,6 +108,7 @@ function confirmation(){
 				
 				var ul = document.getElementById("check");
 				var li = document.createElement("li");
+				li.class="list-group-item";
 				li.appendChild(document.createTextNode(participants[i]));
 				ul.appendChild(li);
     	}

@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<ul class="nav nav-tabs">
+  <li role="presentation" ><a href="index.html">Home</a></li>
+  <li role="presentation"><a href="individualSignIn.html">Individual Sign In</a></li>
+  <li role="presentation"><a href="groupSignIn.html">Group Sign In </a></li>
+</ul>
 <div id="indvSignIn">
 
 	<h1> Please enter your first and last name </h1>
@@ -24,9 +29,9 @@
 
 
 <div id="display" style="display:none">
-	<h1> Search results for:<div id="name"> </div> </h1>
-	<h1> Please check the box beside your name </h1>
-	<ol id="matches"> </ol>
+	<h1> Search results for:<span id="name"> </span> </h1>
+	<h3> Please check the box beside your name </h3>
+	<ol class="list-group" id="matches"> </ol>
 	<button onClick="confirmation()"> Submit </button>
 
 </div>
@@ -42,9 +47,9 @@
 
 <div id="confirm" style="display:none"> 
 	<h1>Confirmation Page </h1>
-	<h3> Would you like to check in these paricipants? <ol id="check"> </ol> </h3>
-	<button> Yes </button>
-	<button> No </Button>
+	<h3> Would you like to check in these paricipants? <ol class="list-group" id="check"> </ol> </h3>
+	<button onClick="location.href='thankYou.html'"> Yes </button>
+	<button onclick="location.href='individualSignIn.html'"> Correction </Button>
 </div>
 
 
@@ -74,7 +79,7 @@ participants = [["Kate", "Darnell", "Pink" ],
 function validateForm() {
    	var firstName = document.forms["myForm"]["firstName"].value;
    	var lastName = document.forms["myForm"]["lastName"].value;
-    if (firstName == null || firstName == "" ) {
+    if ((firstName == null || firstName == "" ) && (lastName == null || lastName == "" ))  {
         alert("Name must be filled out");
         return false;
     }else{
