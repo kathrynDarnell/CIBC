@@ -17,7 +17,7 @@
 		Team name:<br>
 		<input type="text" name="teamName"></input>
 	</form>
-	<button  name="submit" value="submit" onClick="validateForm()"> submit </button>
+	<button  type="button" class="btn btn-default" name="submit" value="submit" onClick="validateForm()"> submit </button>
 </div>
 
 
@@ -32,7 +32,7 @@
 	<h3> Search results for:<span id="name"></span> </h3>
 	<h3> Please check the box beside all the participants you want to check in </h3>
 	<ol class="list-group" id="matches"> </ol>
-	<button onClick="confirmation()"> Submit </button>
+	<button type="button" class="btn btn-default" onClick="confirmation()"> Submit </button>
 </div>
 
 
@@ -46,8 +46,8 @@
 <div id="confirm" style="display:none"> 
 	<h1>Confirmation Page </h1>
 	<h3> Would you like to check in these paricipants? <ol class="list-group" id="check"> </ol> </h3>
-	<button onClick="location.href='thankYou.html'"> Yes </button>
-	<button onclick="location.href='groupSignIn.html'"> Correction </Button>
+	<button type="button" class="btn btn-default" onClick="location.href='thankYou.html'"> Yes </button>
+	<button type="button" class="btn btn-default" onclick="location.href='groupSignIn.html'"> Correction </Button>
 
 </div>
 
